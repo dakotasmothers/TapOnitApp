@@ -11,8 +11,8 @@ const SELECT_ALL_PRODUCTS_QUERY = 'SELECT * FROM ecomm.products';
 const pool = mysql.createPool({
     connectionLimit: 10,
     host: 'localhost',
-    user: 'root',
-    password: '613Columbia!@#',
+    user: 'user',
+    password: 'password',
     database: 'ecomm'
 });
 
@@ -30,6 +30,18 @@ app.use(cors());
 
 app.get('/', (req, res) => {
     res.send('go to /products to see products')
+});
+
+app.get('/products/getproductbyId', (req, res) => {
+    const { productId } = req.query;
+    const SELECT_SINGLE_PRODUCT_QUERY = `SELECT * FROM ecomm.products WHERE ProductId=${productId}`
+    pool.query(SELECT_SINGLE_PRODUCT_QUERY, (err, results) => {
+        if(err){
+            return res.send(err)
+        } else{
+            return res.json({ data: results })
+        }
+    })
 });
 
 app.get('/products/likeproduct', (req, res) => {

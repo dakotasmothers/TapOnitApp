@@ -2,21 +2,34 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.shoplink {
+  width: 50%;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.homeImg {
+  text-align: center;
+  height: 200px;
+  width: 210px;
+  margin-left: 80%;
+  transition: all .5s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.homeImg:hover {
+  transform: scale(1.1);
 }
 
+.starImg {
+  height: 150px;
+  width: 160px;
+  margin-left: 34rem;
+  margin-bottom: 10px;
+  transition: all .5s ease-in-out;
+}
+
+.starImg:hover {
+  transform: scale(1.1);
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
